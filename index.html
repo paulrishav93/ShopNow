@@ -3,8 +3,10 @@
 <html>
 	<title></title>
 	<head>
-		<meta viewport>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="./bootstrap/css/bootstrap.min.css">
+		<link href="./style/confirm.css" rel="stylesheet" type="text/css">
 		<style type="text/css">
 			.loginForm
 			{
@@ -14,8 +16,6 @@
 				margin-bottom: 20%;
 				text-align: center;
 				width: 80%;
-			}
-
 			.btn1
 			{
 				padding: 15%;
@@ -24,113 +24,134 @@
 			}
 		</style>
 	</head>
-	<body> 																					
-		<!--<div style="background: url(Background.jpg) repeat; background-size: 200%;" class = "loginForm">
-				
-				<center><h3 style="align:center; color:#000">AppName</h3></center>
+	<body style = "background-color: #e0f8f7;"> 																					
+		<div id = "sign1" class = "loginForm">
+				<center><h3 style="align:center; color:#000"><img src="logo.jpeg"></h3></center>
 						<form>
 			  <fieldset>
 			    <legend>Sign In</legend>
-			    <label>Email Address</label>
-			    <input type="email" placeholder="someone@something.com">
-			    <label>Password</label>
-			    <input type="Password" >
-			    <center><button type="submit" class="btn">Customer</button>
-			    <button type="submit" class="btn">Shop Owner</button></center>
+			    <label for = "login_email">Email Address</label>
+			    <input id = "login_email" type="email" placeholder="someone@something.com">
+			    <label for = "login_pass">Password</label>
+			    <input id = "login_pass" type="Password" >
+			    <center><button type="button" class="btn" onclick = "loginCus()">Customer</button>
+			    <button type="button" class="btn" onclick = "loginOwner()">Shop Owner</button></center>
 			  </fieldset>
 			</form>
 			<span>New User?</span>
 			<br><span>Sign Up</span>
 
-			<a href="#" style="font-family:calibri; font-size:100% ; textfont-color:#000;">Customer</a> <span>|</span>
-			<a href="#" style="font-family:calibri; font-size:100% ; textfont-color:#000;">Shop Owner </a>
+			<a href="#" style="font-family:calibri; font-size:100% ; textfont-color:#000;" onclick = "hideShow1()">Customer</a> <span>|</span>
+			<a href="#" style="font-family:calibri; font-size:100% ; textfont-color:#000;" onclick = "hideShow2()">Shop Owner </a>
+		</div>																			<!-- FIRST PAGE -->
 
-		</div> -->																	<!-- FIRST PAGE -->
-
-		<!-- <div class = "loginForm">					
+		<div id = "sign2" class = "loginForm" style = "display:none;">					
 						<form>
 			  <fieldset>
 			    <legend>Enter Details</legend>
-			    <label>Name</label>
-			    <input type="text" placeholder="Sachin">
+			    <label for = "cust_signup_name">Name</label>
+			    <input id = "cust_signup_name" type="text" placeholder="Sachin">
 
-			    <label>Location</label>
-			    <input type="text" placeholder="227, Lal Bagh">
+			    <label for = "cust_signup_city">City</label>
+			    <input  id = "cust_signup_city" type="text" placeholder="e.g. Warangal">
 
-			    <label>Email Address</label>
-			    <input type="email" placeholder="someone@something.com">
+			    <label for = "cust_signup_email">Email Address</label>
+			    <input id = "cust_signup_email" type="email" placeholder="someone@something.com">
 
-			    <label>Password</label>
-			    <input type="Password" >
+			    <label for = "cust_signup_pass">Password</label>
+			    <input id = "cust_signup_pass" type="Password" >
 	
-			    <label>Confirm Password</label>
-			    <input type="Password" >
+			    <label for = "cust_signup_pass_conf">Confirm Password</label>
+			    <input id = "cust_signup_pass_conf" type="Password" >
 
-			    <center><button type="submit" class="btn">Sign Up</button></center>
+			    <center><button type="button" class="btn btn-link" onclick = "hideShow3()">Back</button>
+			    	<button type="button" class="btn" onclick = "signup_cust()">Sign Up</button></center>
 			  </fieldset>
 			</form>
-		</div>	-->																				<!-- Customer Sign Up-->
+		</div>																		<!-- Customer Sign Up-->
 
-		<!-- <div class = "loginForm">					
+		<div id = "sign3" class = "loginForm" style = "display:none;">					
 						<form>
 			  <fieldset>
 			    <legend>Enter Details</legend>
-			    <label>Shop Name</label>
-			    <input type="text" placeholder="Co-operative Stores">
-			    <label>Shop Address</label>
-			    <input type="text" placeholder="227, Lal Bagh">
-			    <label>Category</label>
-			    <input type="text" placeholder="Apparel Store">
-			    <label>Email Address</label>
-			    <input type="email" placeholder="someone@something.com">
+			    <label for = "signup_owner_name">Shop Name</label>
+			    <input id = "signup_owner_name" type="text" placeholder="Co-operative Stores">
+			    <label for = "signup_owner_l1">Shop Address line 1</label>
+			    <input id = "signup_owner_l1" type="text" placeholder="eg. Warangal">
+			    <label for = "signup_owner_city">city</label>
+			    <input id = "signup_owner_city" type="text" placeholder="eg. Warangal">
+			    <label for = "signup_owner_email">Email Address</label>
+			    <input id = "signup_owner_email" type="email" placeholder="someone@something.com">
 
-			    <label>Password</label>
-			    <input type="Password" >
+			    <label for = "signup_owner_pass">Password</label>
+			    <input id = "signup_owner_pass" type="Password" >
 	
-			    <label>Confirm Password</label>
-			    <input type="Password" >
+			    <label for = "signup_owner_pass_conf">Confirm Password</label>
+			    <input id = "signup_owner_pass_conf" type="Password" >
 
-			    <center><button type="submit" class="btn">Sign Up</button></center>
+			    <center>
+			    	<button type="button" class="btn btn-link" onclick = "hideShow4()">Back</button>
+			    	<button type="button" class="btn" onclick = "signup_owner()">Sign Up</button></center>
 			  </fieldset>
 			</form>
-		</div>		-->																					<!-- Shop Owner Sign Up -->
+		</div>																					<!-- Shop Owner Sign Up -->
+		
 
-		<!-- <div class = "loginForm">
+
+		<div id = "cust_loggedin" class = "loginForm" style = "display:none;">
 						<div class="tabbable" style="margin-bottom: 18px;">
               <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1" data-toggle="tab">Help</a></li>
-                <li class=""><a href="#tab2" data-toggle="tab">Search</a></li>
-                <li class=""><a href="#tab3" data-toggle="tab">Favorites</a></li>
-                <li class=""><a href="#tab4" data-toggle="tab">Profile</a></li>
+                <li class="active"><a href="#cust_tab2" data-toggle="tab">Search</a></li>
+                <li class=""><a href="#cust_tab3" data-toggle="tab">Favorites</a></li>
+                <li class=""><a href="#cust_tab4" data-toggle="tab">Profile</a></li>
               </ul>
               <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
 
-                <div class="tab-pane active" id="tab1">
-                  <form class="form-inline">
-						<p>Description of the App</p>	
-						</form>	
-                </div>
 
-                <div class="tab-pane" id="tab2">
+                <div class="tab-pane active" id="cust_tab2">
                   <br><br><br>
-						  <input type="text" data-provide="typeahead" placeholder="City"> <br><br>
-						  <input type="text" data-provide="typeahead" placeholder="Item Name" > <br> <br>
-						  <input type="text" data-provide="typeahead" placeholder="Shop Name">	<br><br>
-						  <input type="text" data-provide="typeahead" placeholder="Shop Category">	<br><br>
-						  <button type="submit" class="btn">Search</button>
+						  <input id = "cust_search1" type="text" data-provide="typeahead" placeholder="City"> <br><br>
+						  <input id = "cust_search2" type="text" data-provide="typeahead" placeholder="Item Name" > <br> <br>
+						  <input id = "cust_search3" type="text" data-provide="typeahead" placeholder="Shop Name">	<br><br>
+						  <button type="button" class="btn" onclick = "search()">Search</button>
                 </div>
-                <div class="tab-pane" id="tab3">
-                  <div></div>
-
-                 <div class="tab-pane" id="tab4">	
-                 	<div>Update Profile</div>
+                <div class="tab-pane" id="cust_tab3">
+                  <div>
+                  	<table id = "cust_fav">
+                  		<thead>
+                  			<th>Shop</th>
+                  			<th>Status</th>
+                  			<th></th>
+                  		</thead>
+                  		<tbody>
+                  		</tbody>
+                  	</table>
+                  </div>
+                  </div>
+                 <div class="tab-pane" id="cust_tab4">	
+                 	<div>
+                 		<span>Name</span>
+                 		<legend></legend>
+                 		<h6 id = "cust_prof_name"></h6>
+                 		<br>
+                 		<span>Email</span>
+                 		<legend></legend>
+                 		<h6 id = "cust_prof_email"></h6>
+                 		<br>
+                 		<span>City</span>
+                 		<legend></legend>
+                 		<h6 id = "cust_prof_city"></h6>
+                 	</div>
                 </div>
-              </div>
             </div>					
 
-		</div> -->																						<!-- Customer Main Page -->
+		</div>
+		</div>
 
-		<!--<div class = "loginForm">
+							<!--cust login main page-->
+		<div id = "owner_loggedin" class = "loginForm" style = "display:none;">
+			<input id = "owner_iden" type = "text" style = "display:none;">
+			<input id = "owner_stat" type = "text" style = "display:none;">
 			<div class="tabbable" style="margin-bottom: 18px;">
               <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab1" data-toggle="tab">Home</a></li>
@@ -140,13 +161,51 @@
 	             <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
 
 	                <div class="tab-pane active" id="tab1">
-	                  	<form class="form-inline">
+	                		<h4 id = "owner_signedin_name"></h4>
 							<p style="margin: 0% 90% 0% 10%">Status</p>
 							<legend></legend>
+							<div id = "owner_signedin_status" onclick = "status_changer()">
+							</div>
 							<p style="margin: 0% 90% 0% 10%">Timings</p>
 							<legend></legend>
+							<select style = "width:20%">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+							<select style = "width:20%">
+								<option>AM</option>
+								<option>PM</option>
+							</select>
+							<span> to </span>
+							<select style = "width:20%">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+							</select>
+							<select style = "width:20%">
+								<option>AM</option>
+								<option>PM</option>
+							</select>
 							<p style="margin: 0% 90% 0% 10%">Items</p>
-						</form>	
 	                </div>
 
 	                
@@ -161,39 +220,109 @@
 	                
 	            </div>
             </div>
-        </div> 		-->																						<!-- Shopkeeper Main Page -->
+        </div> 																				<!-- Shopkeeper Main Page -->
 
-
-		<!-- <div class = "loginForm">
-			<table class="table table-striped">
-				<tr>
+        <div id = "searchPage" class = "loginForm" style = "display:none;">
+			<table id = "searchGenTab" class="table table-striped">
+				<thead>
 					<th>Shop Name</th>
 					<th>Status</th>
-				</tr>
+				</thead>
+				<tbody></tbody>
 			</table>
-        </div> 	-->																							<!-- Customer Search Page -->
+			<button type="button" class="btn btn-small" onclick = "hideShow5()" style = "bottom:5%;">Back</button>
+        </div> 																				<!-- Customer Search Page -->
 
-        <!-- <div style="margin-top:10%">
-        	<form class="form-inline">
-        					<center>
-        							<h4><u>Shop Details</u></h4>
-        					</center>
-							<p style="margin: 0% 0% 0% 10%">Shop Name</p>
-							<legend></legend>
-							<p style="margin: 0% 0% 0% 10%">Status</p>
-							<legend></legend>
-							<p style="margin: 0% 0% 0% 10%">Timing</p>
-							<legend></legend>
-							<p style="margin: 0% 0% 0% 10%">Address</p>
-							<legend></legend>
-							<p style="margin: 0% 0% 0% 10%">City</p>
-							<legend></legend>
-							<p style="margin: 0% 0% 0% 10%">Items</p>
-							<legend></legend>
-			</form>	
-        </div>	-->																							<!-- Shop Details for Customer Page -->
-		
+		<form id = "wrongcred" role="dialog" data-type="confirm" style = "display:none;">
+		  <section>
+		    <h1>Alert</h1><!-- this heading is optional -->
+		    <p>Email or Password Wrong!</p>
+		  </section>
+		  <menu>
+		    <button type = "button" onclick = "hide('wrongcred')">Cancel</button>
+		  </menu>
+		</form>
+
+		<form id = "blankcred" role="dialog" data-type="confirm" style = "display:none;">
+		  <section>
+		    <h1>Alert</h1><!-- this heading is optional -->
+		    <p>Email or Password field cannot be empty!</p>
+		  </section>
+		  <menu>
+		    <button type = "button" onclick = "hide('blankcred')">Cancel</button>
+		  </menu>
+		</form>
+
+		<form id = "passunmatch" role="dialog" data-type="confirm" style = "display:none;">
+		  <section>
+		    <h1>Alert</h1><!-- this heading is optional -->
+		    <p>Passwords does not match!</p>
+		  </section>
+		  <menu>
+		    <button type = "button" onclick = "hide('passunmatch')">Cancel</button>
+		  </menu>
+		</form>
+
+		<form id = "emailexist" role="dialog" data-type="confirm" style = "display:none;">
+		  <section>
+		    <h1>Alert</h1><!-- this heading is optional -->
+		    <p>Email already exists!</p>
+		  </section>
+		  <menu>
+		    <button type = "button" onclick = "hide('emailexist')">Cancel</button>
+		  </menu>
+		</form>
+
 		<script type="text/javascript" src = "./bootstrap/js/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src = "./bootstrap/js/bootstrap.min.js"></script> 
+		<script type="text/javascript" src = "./js/myjs.js"></script> 
+		<script type="text/javascript">
+		$('#cust_signup_city').typeahead({
+			minLength:2,
+			items: 5,
+    	source: function (query, process) {
+    	    return $.ajax({
+    	    	       url: './cityq.php?q='+query,
+    	               type:'GET',
+    	               success: function (data) {
+    	               	response = $.parseJSON(data);
+    	                   return process(response);
+    	               }
+    	           });
+    	}
+    });
+
+		$('#signup_owner_city').typeahead({
+			minLength:2,
+			items: 5,
+    	source: function (query, process) {
+    	    return $.ajax({
+    	    	       url: './cityq.php?q='+query,
+    	               type:'GET',
+    	               success: function (data) {
+    	               	response = $.parseJSON(data);
+    	                   return process(response);
+    	               }
+    	           });
+    	}
+    });
+
+		
+		$('#cust_search1').typeahead({
+			minLength:2,
+			items: 5,
+    	source: function (query, process) {
+    	    return $.ajax({
+    	    	       url: './cityq.php?q='+query,
+    	               type:'GET',
+    	               success: function (data) {
+    	               	response = $.parseJSON(data);
+    	                   return process(response);
+    	               }
+    	           });
+    	}
+    });
+
+		</script>
 	</body>
 </html>
